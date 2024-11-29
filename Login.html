@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/form_style.css">
+    <script defer src="js_font_awsome/all.js"></script>
+    <link rel="shortcut icon" href="images/Logos/Logo1.jpg" type="icon image">
+</head>
+<body>
+    <div class="alert" id="msg"></div>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container" id="signupForm">
+            <form id="signupFormElement">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="socail"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name" id="name" required />
+                <input type="email" placeholder="Email" id="email" required />
+                <input type="password" placeholder="Password" id="password" required />
+                <input type="password" placeholder="Confirm Password" id="password2" required />
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <div class="form-container sign-in-container" id="signinForm">
+            <form id="signinFormElement">
+                <h1>Log In</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span>
+                <input type="email" placeholder="Email" id="signinEmail" required />
+                <input type="password" placeholder="Password" id="signinPassword" required />
+                <a href="#">Forgot your password?</a>
+                <a href="./Home.html" ></a><button type="submit">Log In</button></a>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Hello Friend</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signIn">Log In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    </a><button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+        const msg = document.getElementById('msg');
+
+        signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
+
+        // Sign-Up Functionality
+        function signup(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const password2 = document.getElementById('password2').value;
+
+            if (name === '' || email === '' || password === '' || password2 === '') {
+                msg.className = "alert alert-danger";
+                msg.innerHTML = 'Please fill out all fields';
+                msg.style.display = 'block';
+            } else {
+                if (password !== password2) {
+                    msg.className = "alert alert-danger";
+                    msg.innerHTML = 'Passwords do not match';
+                    msg.style.display = 'block';
+                } else {
+                    // Store user details in localStorage
+                    localStorage.setItem('user', JSON.stringify({ name, email, password }));
+                    msg.className = "alert alert-success";
+                    msg.innerHTML = `Welcome ${name}, you are successfully registered!`;
+                    msg.style.display = 'block';
+                    setTimeout(() => {
+                        container.classList.remove("right-panel-active");
+                    }, 2000);
+                }
+            }
+        }
+
+        // Sign-In Functionality
+        function signin(e) {
+            e.preventDefault();
+            const email = document.getElementById('signinEmail').value;
+            const password = document.getElementById('signinPassword').value;
+
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+
+            if (storedUser && storedUser.email === email && storedUser.password === password) {
+                // Redirect to a different page upon successful login
+                window.location.href = "welcome.html"; // Create a simple welcome.html page
+            } else {
+                msg.className = "alert alert-danger";
+                msg.innerHTML = 'Invalid credentials';
+                msg.style.display = 'block';
+            }
+        }
+
+        // Add event listeners for the forms
+        document.getElementById('signupFormElement').addEventListener('submit', signup, false);
+        document.getElementById('signinFormElement').addEventListener('submit', signin, false);
+    </script>
+</body>
+</html>

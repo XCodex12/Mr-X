@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr X</title>
+    <link rel="stylesheet" href="./src/css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/svg+xml" href="./Images/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+            color: antiquewhite;
+        }
+
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
+            background: black url("./Images/header/headerprod.jpg") no-repeat center fixed;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .header {
+            background-color: #333;
+            padding: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .logo img {
+            width: 225px;
+        }
+
+        nav {
+            flex: 1;
+            text-align: right;
+        }
+
+        nav ul {
+            display: inline-block;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #949393;
+            padding: 8px 30px;
+            border-radius: 30px;
+            transition: background 0.5s;
+        }
+
+        .btn:hover {
+            background: #563434;
+            text-decoration: none;
+        }
+    </style>
+    <link rel="shortcut icon" href="images/Logos/Logo1.jpg" type="icon image">
+</head>
+<body>
+    <img src="./images/products/Main.jpg" style="display: none;">
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="./index.html"><img src="./images/header/complogo.png" alt="comp" width="225px"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="headerimg">
+        <h1>Welcome to Mr X</h1>
+        <h3>Your one-stop shop for everything!</h3>
+        <a href="./Login.html" ><button class="btn">Get Started</button></a>
+    </div>
+    <script src="./src/js/script.js"></script>
+</body>
+</html>

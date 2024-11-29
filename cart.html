@@ -1,6 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr X</title>
+    <link rel="stylesheet" href="./src/css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="images/Logos/Logo1.jpg" type="icon image">
 </head>
+
+<style>
+    html, body {
+    height: 100%; /* Make sure the body takes the full height of the viewport */
+    margin: 0; /* Remove default margin */
+}
+
+body {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.text-center {
+    text-align: center; /* Center text inside the div */
+    /* You can also add padding, background color, or borders as needed */
+    padding: 20px;
+    border: 1px solid #ccc; /* Optional: add a border */
+    border-radius: 5px; /* Optional: add rounded corners */
+}
+</style>
+<body>
 <div class="text-center">
     <h2>Make Payment</h2>
     <form id="stripe-form" action="./account.html" method="get">
@@ -13,7 +42,8 @@
                 data-locale="auto"
                 data-currency="zar"
                 data-label="Pay Now">
-
         </script>
     </form>
 </div>
+</body>
+</html>
